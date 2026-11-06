@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom Express | Delivery Estimator</title>
+    <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body class="kiosk-page">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="site-header">
+        <div class="brand">
+            <span class="brand-icon">👻</span>
+            <span>Phantom Express</span>
+        </div>
+        <nav class="site-nav">
+            <a href="index.html">Founder</a>
+            <a href="kiosk.html" class="active">Delivery Estimator</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="estimator-layout">
+
+        <!-- LEFT: INTRODUCTION -->
+        <section class="estimator-intro">
+            <span class="eyebrow">✦ PHANTOM EXPRESS DELIVERY</span>
+
+            <h2>Delivery, Beyond the Ordinary</h2>
+            <h3>Simple. Convenient. Reliable. 👻</h3>
+
+            <p>
+                Estimate your parcel delivery fee with ease.
+                Choose your destination, enter your parcel weight
+                and select your preferred delivery option.
+            </p>
+
+            <div class="intro-details">
+                <div class="detail-item">
+                    <span>01</span>
+                    <div>
+                        <strong>Select Destination</strong>
+                        <p>Choose your delivery zone.</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span>02</span>
+                    <div>
+                        <strong>Enter Parcel Details</strong>
+                        <p>Provide your parcel weight.</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span>03</span>
+                    <div>
+                        <strong>View Estimated Fee</strong>
+                        <p>Get your delivery cost instantly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="floating-ghost"></div>
+        </section>
+
+        <!-- RIGHT: DELIVERY FORM -->
+        <section class="mission-panel">
+            <div class="panel-heading">
+                <span class="panel-tag">✦ DELIVERY DETAILS</span>
+                <h2>Calculate Delivery Fee</h2>
+                <p>Enter your details to estimate the delivery cost.</p>
+            </div>
+
+            <form id="deliveryForm">
+                <!-- CUSTOMER NAME -->
+                <div class="form-field">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" placeholder="Enter your full name">
+                </div>
+
+                <!-- CUSTOMER EMAIL -->
+                <div class="form-field">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" placeholder="Enter your email address">
+                </div>
+
+                <!-- DESTINATION -->
+<div class="form-field" style="margin-bottom: 25px;">
+
+    <label style="display: block; margin-bottom: 6px;">Delivery Destination</label>
+
+    <!-- TEKS PENERANGAN: Diberi margin-bottom 22px supaya ada jarak luas sebelum kotak -->
+    <small class="field-hint" style="display: block; margin-top: 4px; margin-bottom: 22px; color: #c2b1d2; font-size: 11px; line-height: 1.5;">
+        Distance ranges are for guidance only. Actual distances are not calculated automatically.
+    </small>
+
+    <!-- KOTAK DESTINATION: Diberi ruang pernafasan & saiz kemas -->
+    <div class="choice-grid destination-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+
+        <label class="choice-card" style="min-height: 170px; padding: 18px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <input type="radio" name="destination" value="10" required>
+            <img src="images/zone-a-house.png" class="zone-image" alt="Nearby delivery zone" style="height: 52px; width: auto; margin-bottom: 12px; display: block;">
+            <strong style="font-size: 13px; margin-bottom: 4px; color: #ffffff;">Nearby</strong>
+            <small style="font-size: 10px; color: #d0bedf; margin-bottom: 3px;">Zone A · 0–10 km</small>
+            <small style="font-size: 11px; color: #e4a9ff; font-weight: bold;">RM10</small>
+        </label>
+
+        <label class="choice-card" style="min-height: 170px; padding: 18px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <input type="radio" name="destination" value="20" required>
+            <img src="images/zone-b-forest.png" class="zone-image" alt="Far Away delivery zone" style="height: 52px; width: auto; margin-bottom: 12px; display: block;">
+            <strong style="font-size: 13px; margin-bottom: 4px; color: #ffffff;">Far Away</strong>
+            <small style="font-size: 10px; color: #d0bedf; margin-bottom: 3px;">Zone B · 11–30 km</small>
+            <small style="font-size: 11px; color: #e4a9ff; font-weight: bold;">RM20</small>
+        </label>
+
+        <label class="choice-card" style="min-height: 170px; padding: 18px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <input type="radio" name="destination" value="35" required>
+            <img src="images/zone-c-castle.png" class="zone-image" alt="Haunted Hills delivery zone" style="height: 52px; width: auto; margin-bottom: 12px; display: block;">
+            <strong style="font-size: 13px; margin-bottom: 4px; color: #ffffff;">Haunted Hills</strong>
+            <small style="font-size: 10px; color: #d0bedf; margin-bottom: 3px;">Zone C · Above 30 km</small>
+            <small style="font-size: 11px; color: #e4a9ff; font-weight: bold;">RM35</small>
+        </label>
+
+    </div>
+
+</div>
+                <!-- PARCEL WEIGHT -->
+                <div class="form-field">
+                    <label for="weight">Parcel Weight</label>
+                    <div class="weight-box">
+                        <input type="number" id="weight" min="0.1" max="30" step="0.1" placeholder="e.g. 2.5">
+                        <span>KG</span>
+                    </div>
+                </div>
+
+                <!-- DELIVERY SPEED -->
+                <div class="form-field">
+                    <label>Delivery Option</label>
+                    <div class="choice-grid speed-grid">
+                        <label class="speed-card">
+                            <input type="radio" name="speed" value="standard">
+                            <div>
+                                <strong>Standard</strong>
+                                <small>Regular delivery</small>
+                            </div>
+                        </label>
+
+                        <label class="speed-card">
+                            <input type="radio" name="speed" value="express">
+                            <div>
+                                <strong>Express</strong>
+                                <small>Priority delivery</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Kotak Banner Amaran Merah -->
+                <div id="formErrorBanner" class="form-error-banner">
+                    Please complete all required fields highlighted in red.
+                </div>
+
+                <!-- BUTTONS -->
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button type="button" id="calculateBtn" class="mission-button" style="flex: 2;">
+                        <span>+ Calculate Delivery Fee</span>
+                    </button>
+                    <button type="button" id="resetBtn" class="mission-button" style="flex: 1; background: rgba(50,20,70,0.8); justify-content: center;">
+                        <span>↺ Reset Form</span>
+                    </button>
+                </div>
+
+                <p class="form-note" style="margin-top: 10px;">✦ Your estimated delivery cost, in seconds.</p>
+            </form>
+
+            <div id="result" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Phantom Express. All rights reserved.</p>
+        <p>Delivering your parcels beyond the ordinary.</p>
+    </footer>
+
+    <script src="js/script.js?v=2"></script>
+</body>
+</html>
